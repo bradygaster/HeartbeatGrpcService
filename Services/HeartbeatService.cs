@@ -35,6 +35,8 @@ namespace GrpcService
             HeartbeatMessage request, 
             ServerCallContext context)
         {
+            _logger.LogInformation($"Heartbeat received from {request.HostName} at {request.HostTimeStamp}");
+
             SetHeartbeatCache(request);
 
             return Task.FromResult(
